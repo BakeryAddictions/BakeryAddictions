@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import './App.css';
 import { AboutUs } from './components/AboutUs';
+import { AdminLogin } from './components/AdminLogin';
+import { AdminOrders } from './components/AdminOrders';
 import { BakeryMenu } from './components/BakeryMenu';
 import { Cart } from './components/Cart';
 import { ItemDetail } from './components/ItemDetail';
@@ -15,6 +17,9 @@ function App() {
   const [orderDetails, setOrderDetails] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
   const [viewCart, setViewCart] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+  const [showAdminLogin, setShowAdminLogin] = useState(false);
+  const [orders, setOrders] = useState([]);
 
   const handleAddToCart = (item) => {
     console.log("Adding to cart:", item); // Debugging log
@@ -29,6 +34,7 @@ function App() {
   };
 
   const handleCategoryClick = (category) => {
+    setShowAdminLogin(false); // Hide the admin login screen
     setShowPayment(false);
     setOrderDetails(null);
     setSelectedItem(null);
@@ -41,6 +47,24 @@ function App() {
     setShowPayment(false);
     setSelectedItem(null);
     setActiveCategory(null);
+  };
+
+  const handleAdminLogin = (isLoggedIn) => {
+    setIsAdminLoggedIn(isLoggedIn);
+    setShowAdminLogin(false); // Hide login form after successful login
+  };
+
+  const handleAdminLogout = () => {
+    setIsAdminLoggedIn(false); // Log out the admin
+    setShowAdminLogin(false);  // Ensure the login screen is hidden
+  };
+
+  const handleOrderCompletion = (orderId) => {
+    setOrders((prevOrders) =>
+      prevOrders.map((order) =>
+        order.id === orderId ? { ...order, completed: true } : order
+      )
+    );
   };
 
   return (
@@ -73,16 +97,33 @@ function App() {
               </span>
             )}
           </div>
-
+          <div
+            className={`bubble cursor-pointer ${isAdminLoggedIn ? "bg-activeCategory text-white" : "hover:bg-bakeryRed hover:text-white"
+              }`}
+            onClick={() => setShowAdminLogin(true)}
+          >
+            Admin
+          </div>
         </div>
       </nav>
 
       <div className="p-6">
-        {showPayment ? (
+        {isAdminLoggedIn ? (
+          <AdminOrders
+            orders={orders}
+            onOrderCompletion={handleOrderCompletion}
+            onLogout={handleAdminLogout} // Pass the logout handler
+          />
+        ) : showAdminLogin ? (
+          <AdminLogin onLogin={handleAdminLogin} />
+        ) : showPayment ? (
           orderDetails ? (
             <Receipt order={orderDetails} />
           ) : (
-            <Payment cart={cart} onOrderConfirmed={setOrderDetails} />
+            <Payment cart={cart} onOrderConfirmed={(order) => {
+              setOrderDetails(order);
+              setOrders((prevOrders) => [...prevOrders, { ...order, id: Date.now(), completed: false }]);
+            }} />
           )
         ) : viewCart ? (
           <Cart cart={cart} onProceed={handleProceedToPay} />

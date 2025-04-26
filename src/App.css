@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -50,7 +51,8 @@ body {
   font-family: sans-serif;
 }
 
-h1, h2 {
+h1,
+h2 {
   color: var(--bakery-red);
   background-color: var(--bakery-lilac);
   padding: 0.5rem;
@@ -67,34 +69,94 @@ h1, h2 {
 
 .bubble-container {
   display: flex;
-  flex-wrap: wrap; /* Allow bubbles to wrap to the next line if needed */
-  justify-content: center; /* Center-align the bubbles horizontally */
-  gap: 1rem; /* Add spacing between the bubbles */
-  padding: 1rem; /* Add padding around the container */
+  flex-wrap: wrap;
+  /* Allow bubbles to wrap to the next line if needed */
+  justify-content: center;
+  /* Center-align the bubbles horizontally */
+  gap: 1rem;
+  /* Add spacing between the bubbles */
+  padding: 1rem;
+  /* Add padding around the container */
 }
 
 .bubble {
   display: inline-block;
   padding: 0.5rem 1rem;
-  border-radius: 9999px; /* Makes the element circular */
-  background-color: #f3f4f6; /* Light gray background */
-  color: #1f2937; /* Dark gray text */
-  font-size: 0.875rem; /* Text size */
-  font-weight: 500; /* Medium font weight */
+  border-radius: 9999px;
+  /* Makes the element circular */
+  background-color: #f3f4f6;
+  /* Light gray background */
+  color: #1f2937;
+  /* Dark gray text */
+  font-size: 0.875rem;
+  /* Text size */
+  font-weight: 500;
+  /* Medium font weight */
   text-align: center;
-  transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
-  max-width: 200px; /* Ensure bubbles fit within a reasonable width */
-  text-overflow: ellipsis; /* Handle overflow text gracefully */
-  white-space: nowrap; /* Prevent text wrapping inside the bubble */
-  overflow: hidden; /* Hide overflowing text */
+  transition: background-color 0.3s, color 0.3s;
+  /* Smooth hover effect */
+  max-width: 200px;
+  /* Ensure bubbles fit within a reasonable width */
+  text-overflow: ellipsis;
+  /* Handle overflow text gracefully */
+  white-space: nowrap;
+  /* Prevent text wrapping inside the bubble */
+  overflow: hidden;
+  /* Hide overflowing text */
 }
 
 .bubble:hover {
-  background-color: #9b193d; /* Red background on hover */
-  color: #ffffff; /* White text on hover */
+  background-color: #9b193d;
+  /* Red background on hover */
+  color: #ffffff;
+  /* White text on hover */
 }
 
 .bg-activeCategory {
-  background-color: #9b193d; /* Active category background color */
-  color: #ffffff; /* White text color */
+  background-color: #9b193d;
+  /* Active category background color */
+  color: #ffffff;
+  /* White text color */
+}
+
+.admin-login {
+  text-align: center;
+  margin: 20px;
+}
+
+.admin-login input {
+  margin: 10px;
+  padding: 5px;
+}
+
+.admin-login button {
+  padding: 5px 10px;
+}
+
+.admin-orders {
+  margin: 20px;
+}
+
+.admin-orders .order {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.admin-orders .order.completed {
+  background-color: #d4edda;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
 }
