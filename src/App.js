@@ -70,7 +70,7 @@ function App() {
   return (
     <div className="min-h-screen bg-bakeryBlue text-bakeryGold">
       <nav className="p-4 bg-bakeryLilac shadow-md">
-        <h1 className="text-3xl font-bold text-bakeryRed text-center">Bakery Addiction</h1>
+        <h1 className="text-3xl font-bold text-bakeryRed text-center">Monica Food Studio</h1>
         <div className="bubble-container">
           {[
             "ClassicCakes", "PremiumCakes", "TeaTimeCakes", "DarkChocolateCakes", "Cupcakes", "Brownies", "Blondies",
