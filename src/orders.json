@@ -1,1 +1,19 @@
-[]
+[
+    {
+        "id": 123456789,
+        "items": [
+            {
+                "name": "Cake",
+                "weight": "1kg",
+                "price": 500
+            },
+            {
+                "name": "Cookies",
+                "price": 200
+            }
+        ],
+        "total": 700,
+        "expectedDeliveryDate": "04/27/2025",
+        "completed": false
+    }
+]

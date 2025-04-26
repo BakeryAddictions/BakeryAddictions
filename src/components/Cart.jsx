@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Cart = ({ cart, onProceed }) => {
+export const Cart = ({ cart }) => {
   // Calculate the expected delivery date (next day)
   const today = new Date();
   const expectedDeliveryDate = new Date(today);
@@ -34,12 +34,29 @@ export const Cart = ({ cart, onProceed }) => {
     } catch (error) {
       console.error('Failed to save order:', error);
       alert('Failed to place order. Please try again.');
+      return;
     }
 
     // Redirect to UPI payment
     const upiId = "jhanavi.dave97@okhdfcbank"; // Replace with your UPI ID
     const upiUrl = `upi://pay?pa=${upiId}&pn=Bakery&mc=0000&tid=${order.id}&tr=${order.id}&tn=Order%20Payment&am=${order.total}&cu=INR`;
     window.location.href = upiUrl;
+
+    // Send email notification after payment
+    try {
+      await fetch('http://localhost:5000/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          orderId: order.id,
+          customerName: 'Customer Name', // Replace with actual customer name
+          totalAmount: order.total,
+        }),
+      });
+      console.log('Email notification sent successfully');
+    } catch (error) {
+      console.error('Failed to send email notification:', error);
+    }
   };
 
   return (
