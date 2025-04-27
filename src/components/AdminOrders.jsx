@@ -1,3 +1,5 @@
+// Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
+
 import React, { useEffect, useState } from 'react';
 import ordersData from '../orders.json';
 
@@ -30,7 +32,7 @@ export const AdminOrders = () => {
 
   const handleLogout = () => {
     console.log('Admin logged out');
-    window.location.href = '/adminlogin'; // Redirect to the admin login page
+    window.location.href = '/monicasfoodstudio/adminlogin';
   };
 
   return (

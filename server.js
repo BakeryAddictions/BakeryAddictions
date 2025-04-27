@@ -4,12 +4,13 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config();
+require('dotenv').config({ path: './email.env' });
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Configure Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -18,62 +19,32 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post('/api/orders', (req, res) => {
-  const order = req.body;
+app.post('/api/send-email', (req, res) => {
+  const { customerName, contactNumber, orderDate, deliveryDate, items, total } = req.body;
 
-  const ordersFilePath = path.join(__dirname, 'src', 'orders.json');
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: 'monicasfoodstudio@gmail.com',
+    subject: `New Order Placed - Order ID: ${req.body.id}`,
+    text: `A new order has been placed.\n\nCustomer Name: ${customerName}\nContact Number: ${contactNumber}\nOrder Date: ${orderDate}\nDelivery Date: ${deliveryDate}\n\nItems:\n${items
+      .map((item) => `- ${item.name} (${item.weight}): ₹${item.price}`)
+      .join('\n')}\n\nTotal: ₹${total}\n\nPlease process the order.`,
+  };
 
-  fs.readFile(ordersFilePath, 'utf8', (err, data) => {
+  transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
-      console.error('Error reading orders.json:', err);
-      return res.status(500).send('Failed to save order');
+      console.error('Error sending test email:', err);
+    } else {
+      console.log('Test email sent successfully:', info.response);
     }
-
-    let orders = [];
-    try {
-      orders = JSON.parse(data);
-    } catch (parseError) {
-      console.error('Error parsing orders.json:', parseError);
-    }
-
-    orders.push(order);
-
-    fs.writeFile(ordersFilePath, JSON.stringify(orders, null, 2), (writeErr) => {
-      if (writeErr) {
-        console.error('Error writing to orders.json:', writeErr);
-        return res.status(500).send('Failed to save order');
-      }
-
-      console.log('Order saved successfully:', order);
-      res.status(201).send('Order saved successfully');
-    });
   });
 });
 
-app.post('/api/update-orders', (req, res) => {
-  const updatedOrders = req.body;
-
-  const ordersFilePath = path.join(__dirname, 'src', 'orders.json');
-
-  fs.writeFile(ordersFilePath, JSON.stringify(updatedOrders, null, 2), (err) => {
-    if (err) {
-      console.error('Error writing to orders.json:', err);
-      return res.status(500).send('Failed to update orders');
-    }
-
-    console.log('Orders updated successfully');
-    res.status(200).send('Orders updated successfully');
-  });
-});
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
-
+// Endpoint to retrieve all orders
 app.get('/orders', (req, res) => {
   const ordersFilePath = path.join(__dirname, 'src', 'orders.json');
 
+  // Read the orders.json file
   fs.readFile(ordersFilePath, 'utf8', (err, data) => {
     if (err) {
       console.error('Error reading orders.json:', err);
@@ -88,4 +59,10 @@ app.get('/orders', (req, res) => {
       res.status(500).send('Failed to parse orders');
     }
   });
+});
+
+// Start the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });

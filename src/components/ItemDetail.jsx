@@ -1,3 +1,4 @@
+// Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
 import React, { useState } from 'react';
 
 export const ItemDetail = ({ item, onAddToCart }) => {

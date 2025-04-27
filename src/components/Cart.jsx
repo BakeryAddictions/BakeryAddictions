@@ -1,8 +1,10 @@
 // Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
+import emailjs from 'emailjs-com';
 import { jsPDF } from 'jspdf';
 import { applyPlugin } from 'jspdf-autotable';
 import React, { useState } from 'react';
 import logo from './images/logo.png';
+
 applyPlugin(jsPDF);
 
 export const Cart = ({ cart }) => {
@@ -35,20 +37,7 @@ export const Cart = ({ cart }) => {
       deliveryDate: formattedDeliveryDate,
       items: orderDetails,
       total: cart.reduce((sum, item) => sum + item.price, 0),
-      completed: false,
     };
-
-    try {
-      await fetch('http://localhost:5000/api/orders', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(order),
-      });
-    } catch (error) {
-      console.error('Failed to save order:', error);
-      alert('Failed to place order. Please try again.');
-      return;
-    }
 
     const doc = new jsPDF();
     const pageHeight = doc.internal.pageSize.getHeight();
@@ -94,6 +83,29 @@ export const Cart = ({ cart }) => {
 
     doc.save(`Order_Receipt_${order.id}.pdf`);
 
+    const emailParams = {
+      customer_name: customerName,
+      contact_number: contactNumber,
+      order_date: orderDate,
+      delivery_date: formattedDeliveryDate,
+      items: orderDetails.map((item) => `- ${item.name} (${item.weight}): ₹${item.price}`).join('\n'),
+      total: `₹${order.total}`,
+    };
+
+    try {
+      await emailjs.send(
+        'service_w96ibgj',
+        'template_5h890qo',
+        emailParams,
+        'SBISX9vDC6D-LAaae'
+      );
+
+      alert('Order placed successfully! Receipt downloaded and email sent.');
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      alert('Failed to send email. Please try again.');
+    }
+    
     const upiId = 'monicasfoodstudio@okhdfcbank';
     const upiUrl = `upi://pay?pa=${upiId}&pn=Bakery&mc=0000&tid=${order.id}&tr=${order.id}&tn=Order%20Payment&am=${order.total}&cu=INR`;
     window.location.href = upiUrl;
