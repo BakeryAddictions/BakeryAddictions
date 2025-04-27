@@ -1,0 +1,166 @@
+/* Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave) */
+@import url('https://fonts.googleapis.com/css2?family=Askervville+SC&display=swap');
+
+#about-us-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+#about-us-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#about-us-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+#about-us-highlight {
+    font-weight: bold;
+}
+
+#image-marquee {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    height: 350px;
+    margin-top: 2rem;
+}
+
+.marquee-content {
+    display: flex;
+    animation: scrollMarquee 20s linear infinite;
+    width: calc(200%);
+}
+
+.marquee-item {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 350px;
+    margin-right: 1rem;
+}
+
+.marquee-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #fff;
+}
+
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.custom-list li::before {
+    content: '➤';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4a5568;
+    font-size: 1rem;
+}
+
+.bakery-menu-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.bakery-category {
+    margin-bottom: 2rem;
+}
+
+.bakery-category-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    color: #555;
+    font-family: 'Baskervville SC', serif;
+}
+
+.bakery-items-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+    .bakery-items-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .bakery-items-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.bakery-item {
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bakery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+.bakery-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    background-color: #f4f4f4; /* Light neutral background for images */
+}
+
+.bakery-item-name {
+    font-weight: bold;
+    color: #444;
+    font-size: 1.2rem;
+    font-family: 'Baskervville SC', serif;
+}
+
+.bakery-item-text {
+    font-weight: bold;
+    color: #666;
+    font-size: 1rem;
+    font-family: 'Baskervville SC', serif;
+}

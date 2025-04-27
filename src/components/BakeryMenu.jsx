@@ -1,118 +1,105 @@
-import React from 'react';
+// Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
+import { default as React } from 'react';
+import './styling.css';
+
+import almondRoseBlondies from './images/almond-rose-blondies.jpg';
+import biscuitBox from './images/assorted-biscuit-box.jpg';
+import assortedNankhataiBox from './images/assorted-nankhatai-box.jpg';
+import assortedCupcakeBouquet from './images/assortedCupcakeBouquet.jpg';
+import blackGrapes from './images/black-grapes.jpeg';
+import blackJamun from './images/black-jamun.jpeg';
+import blackforest from './images/blackforestclassic.png';
+import breakfastToast from './images/breakfast-toast-box.jpg';
+import butterscotchPraline from './images/butterscotch-praline.jpeg';
+import butterscotch from './images/butterscotch.jpg';
+import cappucinoLovers from './images/cappucino-lovers.jpeg';
+import chocoMango from './images/choco-mango.jpeg';
+import chocolateCupcakeBouquet from './images/chocolate-cupcake-bouquet.jpg';
+import chocolateTruffle from './images/chocolate-truffle.jpeg';
+import chocolateVanillaVibes from './images/chocolate-vanilla-vibes.jpg';
+import classicChocolate from './images/classic-chocolate.jpg';
+import desiNankhataiBox from './images/desi-nankhatai.jpeg';
+import focaccia from './images/focaccia.jpg';
+import gulabjamun from './images/gulabjamun.jpg';
+import iraniParsi from './images/iraniParsi.jpeg';
+import khachapuri from './images/khachapuri.jpg';
+import kitkatChocolate from './images/kitkat-chocolate.jpeg';
+import mangoSwirlBlondies from './images/mango-swirl-blondies.jpeg';
+import mango from './images/mango.jpg';
+import meltingMomentsCookies from './images/melting-moments-cookies.jpeg';
+import mixFruit from './images/mix-fruit.jpeg';
+import oreoCookies from './images/oreo-cookies.jpg';
+import pestoBuns from './images/pestoBuns.jpg';
+import pinacolada from './images/pinacolada.jpeg';
+import pineappleNankhataiBox from './images/pineapple-nankhatai-box.jpg';
+import pineapple from './images/pineapple.jpeg';
+import plum from './images/plum.jpg';
+import rasmalai from './images/rasmalai.jpeg';
+import redVelvetCreamCheeseCupcakeBouquet from './images/red-velvet-cream-cheese-cupcake-bouquet.jpeg';
+import redVelvetCupcakes from './images/red-velvet-cupcakes.jpeg';
+import redVelvetCreamCheese from './images/red-velvet.jpeg';
+import rosyPista from './images/rosyPista.jpeg';
+import strawberry from './images/strawberry.jpg';
+import tutiFruity from './images/tutiFruity.jpeg';
+import wholewheatNankhataiBox from './images/whole-wheat-nankhatai-box.jpg';
+
 
 const categories = {
   ClassicCakes: [
-    { name: "Black Forest", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/black-forest.jpg" },
-    { name: "Pineapple", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/pineapple.jpg" },
-    { name: "Strawberry", image: "/images/strawberry.jpg" },
-    { name: "Classic Chocolate", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/chocolate.jpg" },
-    { name: "Mango", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/mango.jpg" },
-    { name: "Butterscotch", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/butterscotch.jpg" },
-    { name: "Chocolate Truffle", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/chocolate-truffle.jpg" },
-    { name: "Chocolate Vanilla Vibes", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/chocolate-vanilla-vibes.jpg" },
-    { name: "Choco Chips", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/choco-chips.jpg" },
-    { name: "Mix Fruit", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/mix-fruit.jpg" },
-    { name: "Gulab Jamun", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/gulab-jamun.jpg" },
-    { name: "Rasmalai", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/rasmalai.jpg" },
-    { name: "Motichoor", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/motichoor.jpg" },
+    { name: "Black Forest", variants: [{ weight: "500g", price: 430 }, { weight: "1kg", price: 750 }], image: blackforest },
+    { name: "Pineapple", variants: [{ weight: "500g", price: 410 }, { weight: "1kg", price: 700 }], image: pineapple },
+    { name: "Strawberry", variants: [{ weight: "500g", price: 450 }, { weight: "1kg", price: 800 }], image: strawberry },
+    { name: "Mango", variants: [{ weight: "500g", price: 550 }, { weight: "1kg", price: 1000 }], image: mango },
+    { name: "Black Jamun", variants: [{ weight: "500g", price: 550 }, { weight: "1kg", price: 1000 }], image: blackJamun },
+    { name: "Mix Fruit", variants: [{ weight: "500g", price: 480 }, { weight: "1kg", price: 850 }], image: mixFruit },
+    { name: "Gulabjamun", variants: [{ weight: "500g", price: 550 }, { weight: "1kg", price: 1000 }], image: gulabjamun },
+    { name: "Rasmalai", variants: [{ weight: "500g", price: 550 }, { weight: "1kg", price: 1000 }], image: rasmalai },
+    { name: "Classic Chocolate", variants: [{ weight: "500g", price: 550 }, { weight: "1kg", price: 1000 }], image: classicChocolate },
+    { name: "Chocolate Truffle", variants: [{ weight: "500g", price: 430 }, { weight: "1kg", price: 750 }], image: chocolateTruffle },
+    { name: "Chocolate Vanilla Vibes", variants: [{ weight: "500g", price: 460 }, { weight: "1kg", price: 800 }], image: chocolateVanillaVibes },
+    { name: "Butterscotch", variants: [{ weight: "500g", price: 430 }, { weight: "1kg", price: 750 }], image: butterscotch },
   ],
   PremiumCakes: [
-    { name: "Oreo Cookies Cake", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/oreo.jpg" },
-    { name: "Cappuccino Lovers", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/cappuccino.jpg" },
-    { name: "Kitkat Chocolate", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/kitkat.jpg" },
-    { name: "5 Star Chocolate", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/5-star-chocolate.jpg" },
-    { name: "Red Velvet Cream Cheese", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/red-velvet-cream-cheese.jpg" },
-    { name: "Butterscotch Praline", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/butterscotch-praline.jpg" },
-    { name: "Choco Mango", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/choco-mango.jpg" },
-    { name: "Black Grapes", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/black-grapes.jpg" },
-    { name: "Black Jamun", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/black-jamun.jpg" },
+    { name: "Oreo Cookies", variants: [{ weight: "500g", price: 575 }, { weight: "1kg", price: 1100 }], image: oreoCookies },
+    { name: "Cappuccino Lovers", variants: [{ weight: "500g", price: 550 }, { weight: "1kg", price: 1100 }], image: cappucinoLovers },
+    { name: "KitKat Chocolate", variants: [{ weight: "500g", price: 550 }, { weight: "1kg", price: 1100 }], image: kitkatChocolate },
+    { name: "5 Star Chocolate", variants: [{ weight: "500g", price: 550 }, { weight: "1kg", price: 1100 }], image: "/images/5star-chocolate.jpg" },
+    { name: "Red Velvet Cream Cheese", variants: [{ weight: "500g", price: 850 }, { weight: "1kg", price: 1750 }], image: redVelvetCreamCheese },
+    { name: "Butterscotch Praline", variants: [{ weight: "500g", price: 575 }, { weight: "1kg", price: 1200 }], image: butterscotchPraline },
+    { name: "Choco Mango", variants: [{ weight: "500g", price: 850 }, { weight: "1kg", price: 1650 }], image: chocoMango },
+    { name: "Black Grapes", variants: [{ weight: "500g", price: 850 }, { weight: "1kg", price: 1650 }], image: blackGrapes },
   ],
   TeaTimeCakes: [
-    { name: "Tuti Fruity", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/tutifruity.jpg" },
-    { name: "Rawa (No Maida)", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/rawa.jpg" },
-    { name: "Parsi Mawa", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/parsi-mawa.jpg" },
-    { name: "Marble", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/marble.jpg" },
-    { name: "Financier with Berries", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/financier-with-berries.jpg" },
-    { name: "Tropical Pinacolada", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/tropical-pinacolada.jpg" },
-    { name: "Hot Milk Lime Slices", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/hot-milk-lime-slices.jpg" },
-    { name: "Blueberry Cream Cheese Pound Cake", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/blueberry-cream-cheese-pound-cake.jpg" },
-  ],
-  DarkChocolateCakes: [
-    { name: "Dutch Truffle", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/dutch-truffle.jpg" },
-    { name: "Dutch Almond", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/dutch-almond.jpg" },
-    { name: "Dutch Walnut", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/dutch-walnut.jpg" },
-    { name: "Dutch Hazelnut", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/dutch-hazelnut.jpg" },
-    { name: "Dutch Hazelnut Almond", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/dutch-hazelnut-almond.jpg" },
-    { name: "Dutch Nutella", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/dutch-nutella.jpg" },
-    { name: "Dutch Ferrero Rocher", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/dutch-ferrero-rocher.jpg" },
+    { name: "Tuti Fruity", variants: [{ weight: "6pcs", price: 350 }], image: tutiFruity },
+    { name: "Irani Parsi Mawa", variants: [{ weight: "6pcs", price: 350 }], image: iraniParsi },
+    { name: "Tropical Pinacolada", variants: [{ weight: "6pcs", price: 450 }], image: pinacolada },
+    { name: "Plum Cake", variants: [{ weight: "500g", price: 700 }], image: plum },
+    { name: "Rosy Pista Crumble", variants: [{ weight: "6pcs", price: 450 }], image: rosyPista },
   ],
   Cupcakes: [
-    { name: "Red Velvet", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/red-velvet.jpg" },
-    { name: "Choco Berry", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/choco-berry.jpg" },
-    { name: "Choco Orange", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/choco-orange.jpg" },
-    { name: "Blueberry & Coconut", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/blueberry-coconut.jpg" },
-    { name: "Classic Butter Vanilla", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/classic-butter-vanilla.jpg" },
-  ],
-  Brownies: [
-    { name: "Citrus Cookie Brownie", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/citrus-cookie-brownie.jpg" },
-    { name: "Peanut Crunch Brownie", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/peanut-crunch-brownie.jpg" },
-    { name: "Red Velvet Cream Cheese Brownie", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/red-velvet-cream-cheese-brownie.jpg" },
-    { name: "Death by Raspberry Brownie", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/death-by-raspberry-brownie.jpg" },
-    { name: "Masala Chai Fudge Brownie", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/masala-chai-fudge-brownie.jpg" },
-    { name: "Minty Cheese & Cookies Brownie", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/minty-cheese-cookies-brownie.jpg" },
-    { name: "Double Chocolate Brownie", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/double-chocolate-brownie.jpg" },
+    { name: "Assorted Cupcake Large Cupcake Bouquet", variants: [{ weight: "6pcs", price: 700 }], image: assortedCupcakeBouquet },
+    { name: "Chocolate Cupcake Bouquet", variants: [{ weight: "6pcs", price: 750 }], image: chocolateCupcakeBouquet},
+    { name: "Red Velvet Cream Cheese Cupcake Bouquet", variants: [{ weight: "6pcs", price: 760 }], image: redVelvetCreamCheeseCupcakeBouquet },
+    { name: "Red Velvet Cupcakes", variants: [{ weight: "6pcs", price: 450 }], image: redVelvetCupcakes },
   ],
   Blondies: [
-    { name: "Mango Swirl Blondies", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/mango-swirl-blondies.jpg" },
-    { name: "Almond & Rose Blondies", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/almond-rose-blondies.jpg" },
-    { name: "Strawberry & Sesame Blondies", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/strawberry-sesame-blondies.jpg" },
-  ],
-  Cheesecakes: [
-    { name: "Blueberry Cheese Cake", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/blueberry-cheese-cake.jpg" },
-    { name: "Choco", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/choco-cheesecake.jpg" },
-    { name: "Saint Sebastian Burnt Basque", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/saint-sebastian-burnt-basque.jpg" },
-    { name: "Strawberry", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/strawberry-cheesecake.jpg" },
-    { name: "Mango", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/mango-cheesecake.jpg" },
-    { name: "Irish Coffee", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/irish-coffee-cheesecake.jpg" },
-    { name: "Tiramisu", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/tiramisu-cheesecake.jpg" },
-    { name: "Fruit Coulis", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/fruit-coulis-cheesecake.jpg" },
-    { name: "Oreo", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/oreo-cheesecake.jpg" },
-    { name: "New York Style Baked", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/new-york-style-baked.jpg" },
-    { name: "Lotus Biscoff", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/lotus-biscoff-cheesecake.jpg" },
+    { name: "Mango Swirl Blondies", variants: [{ weight: "6pcs", price: 600 }], image: mangoSwirlBlondies},
+    { name: "Almond and Rose Blondies", variants: [{ weight: "6pcs", price: 660 }], image: almondRoseBlondies},
   ],
   Biscuits: [
-    { name: "Desi Nankhatai", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/desi-nankhatai.jpg" },
-    { name: "Melting Moments", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/melting-moments.jpg" },
-    { name: "Crunchy Sesame Coconut", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/crunchy-sesame-coconut.jpg" },
-    { name: "Chunky Choco Chip", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/chunky-choco-chip.jpg" },
-    { name: "Choco Almond", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/choco-almond.jpg" },
-    { name: "Cornflakes Cookies", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/cornflakes-cookies.jpg" },
-    { name: "Breakfast Cookies", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/breakfast-cookies.jpg" },
-    { name: "Rose & Pistachio Cookies", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/rose-pistachio-cookies.jpg" },
-    { name: "Mocha Caramel Cookies", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/mocha-caramel-cookies.jpg" },
-    { name: "Red Velvet Oreo with Cream Cheese", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/red-velvet-oreo-cream-cheese.jpg" },
-    { name: "Pineapple Filled Cookies", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/pineapple-filled-cookies.jpg" },
-    { name: "Hyderabadi Karachi Fruit Biscuits", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/hyderabadi-karachi-fruit-biscuits.jpg" },
-    { name: "Surprise Sprinkle Cookies", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/surprise-sprinkle-cookies.jpg" },
+    { name: "Melting Moments Cookies", variants: [{ weight: "12pcs", price: 360 }], image: meltingMomentsCookies },
+    { name: "Assorted Nankhatai Box", variants: [{ weight: "1 box", price: 80 }], image: assortedNankhataiBox },
+    { name: "Pineapple Nankhatai Box", variants: [{ weight: "1 box", price: 80 }], image: pineappleNankhataiBox },
+    { name: "Wholewheat Nankhatai Box", variants: [{ weight: "1 box", price: 100 }], image: wholewheatNankhataiBox },
+    { name: "Desi Nankhatai Box", variants: [{ weight: "1 box", price: 80 }], image: desiNankhataiBox},
+    { name: "Assorted Biscuit Box", variants: [{ weight: "1 box", price: 80 }], image: biscuitBox },
+    { name: "Big Breakfast Toast Box", variants: [{ weight: "big", price: 100 }, {weight: "medium", price: "80"}], image: breakfastToast },
+    // { name: "Medium Breakfast Toast Box", variants: [{ weight: "1 box", price: 80 }], image: "/images/medium-breakfast-toast-box.jpg" },
   ],
   Breads: [
-    { name: "Sandwich Bread (1 Loaf)", price: 220, weight: "1 loaf", image: "/images/sandwich-bread.jpg" },
-    { name: "Baked Vada Pav (6 Pcs)", price: 240, weight: "6 pcs", image: "/images/baked-vada-pav.jpg" },
-    { name: "Baked Ladi Pav (6 Pcs)", price: 210, weight: "6 pcs", image: "/images/baked-ladi-pav.jpg" },
-    { name: "Baked Paneer Bhurji Pav (6 Pcs)", price: 260, weight: "6 pcs", image: "/images/baked-paneer-bhurji-pav.jpg" },
-    { name: "Herbed Focaccia (1 Loaf)", price: 300, weight: "1 loaf", image: "/images/herbed-focaccia.jpg" },
-    { name: "Cinnamon Pull Parts (6 Pcs)", price: 280, weight: "6 pcs", image: "/images/cinnamon-pull-parts.jpg" },
-    { name: "Pesto Filled Bun (6 Pcs)", price: 270, weight: "6 pcs", image: "/images/pesto-filled-bun.jpg" },
-    { name: "Turkish Georgian Bread (3 Boats)", price: 350, weight: "3 boats", image: "/images/turkish-georgian-bread.jpg" },
-    { name: "Tuty Fruity Buns (6 Pcs)", price: 240, weight: "6 pcs", image: "/images/tuty-fruity-buns.jpg" },
-    { name: "Theme Samosas (6 Pcs)", price: 220, weight: "6 pcs", image: "/images/theme-samosas.jpg" },
-    { name: "Green Chole (500gm)", price: 180, weight: "500gm", image: "/images/green-chole.jpg" }
-  ],
-  Bons: [
-    { name: "Rosy Pista Crumble", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/rosy-pista-crumble.jpg" },
-    { name: "Date & Walnut", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/date-walnut.jpg" },
-    { name: "Apple Cinnamon", variants: [{ weight: "500g", price: 500 }, { weight: "1kg", price: 900 }], image: "/images/apple-cinnamon.jpg" },
-
+    { name: "Khachapuri Georgian Bread (Chef specialty: 3 loaf boat-shaped breads topped with sweet corn, spinach, cheese and herbs)", variants: [{ weight: "3 boats", price: 500 }], image: khachapuri },
+    { name: "Pesto Filled Buns", variants: [{ weight: "6pcs", price: 450 }], image: pestoBuns },
+    { name: "Herbed Focaccia Loaf", variants: [{ weight: "1 qty", price: 370 }], image: focaccia },
   ]
 };
 
@@ -122,41 +109,40 @@ export const BakeryMenu = ({ onSelectItem, selectedCategory }) => {
     : categories;
 
   return (
-    <div className="p-4">
+    <div className="bakery-menu-container">
       {Object.entries(visibleCategories).map(([category, items]) => (
-        <div key={category} className="mb-8">
-          <h3 className="text-xl font-semibold mb-4 capitalize">{category.replace(/([A-Z])/g, ' $1').trim()}</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {Array.isArray(items) && items.map((item, index) => {
-              if (typeof item === 'string') {
+        <div key={category} className="bakery-category">
+          <h3 className="bakery-category-title">
+            {category.replace(/([A-Z])/g, ' $1').trim()}
+          </h3>
+          <div className="bakery-items-grid">
+            {Array.isArray(items) &&
+              items.map((item, index) => {
+                if (typeof item === 'string') {
+                  return (
+                    <div
+                      key={index}
+                      className="bakery-item"
+                      onClick={() => onSelectItem?.(item)}
+                    >
+                      <p className="bakery-item-text">{item}</p>
+                    </div>
+                  );
+                }
+
+                const { name, price, weight, image } = item;
+
                 return (
                   <div
                     key={index}
-                    className="border rounded-lg p-4 shadow hover:bg-gray-50 cursor-pointer bg-bakery-lilac"
+                    className="bakery-item"
                     onClick={() => onSelectItem?.(item)}
                   >
-                    <p className="font-medium text-bakery-red">{item}</p>
+                    <img src={image} alt={name} />
+                    <p className="bakery-item-name">{name}</p>
                   </div>
                 );
-              }
-
-              const { name, price, weight, image } = item;
-
-              return (
-                <div
-                  key={index}
-                  className="border rounded-lg p-4 shadow hover:bg-gray-50 cursor-pointer flex flex-col items-center text-center bg-bakery-lilac"
-                  onClick={() => onSelectItem?.(item)}
-                >
-                  <img
-                    src={image}
-                    alt={name}
-                    className="w-40 h-40 object-cover rounded mb-3"
-                  />
-                  <p className="font-semibold text-bakery-red">{name}</p>
-                </div>
-              );
-            })}
+              })}
           </div>
         </div>
       ))}

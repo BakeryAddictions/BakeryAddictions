@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1745771178209,
+    "customerName": "rgt",
+    "contactNumber": "45648",
+    "orderDate": "4/27/2025",
+    "deliveryDate": "4/29/2025",
+    "items": [
+      {
+        "name": "Oreo Cookies",
+        "weight": "1kg",
+        "price": 1100
+      }
+    ],
+    "total": 1100,
+    "completed": false
+  }
+]

@@ -1,3 +1,5 @@
+// Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
+// deprecated
 import React from 'react';
 
 export const Receipt = ({ order }) => {

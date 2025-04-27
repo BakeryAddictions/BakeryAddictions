@@ -1,3 +1,5 @@
+// Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
+// deprecated
 import React, { useState } from 'react';
 
 export const Payment = ({ cart, onOrderConfirmed }) => {
@@ -6,7 +8,7 @@ export const Payment = ({ cart, onOrderConfirmed }) => {
     contact: '',
     address: '',
     deliveryDate: '',
-    paymentMethod: 'Cash on Delivery' // Default payment method
+    paymentMethod: 'Cash on Delivery'
   });
 
   const handleConfirm = async () => {

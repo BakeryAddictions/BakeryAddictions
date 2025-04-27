@@ -1,3 +1,4 @@
+// Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
 import { jsPDF } from 'jspdf';
 import { applyPlugin } from 'jspdf-autotable';
 import React, { useState } from 'react';
@@ -8,7 +9,6 @@ export const Cart = ({ cart }) => {
   const [customerName, setCustomerName] = useState('');
   const [contactNumber, setContactNumber] = useState('');
 
-  // Calculate the expected delivery date (next day)
   const today = new Date();
   const orderDate = today.toLocaleDateString();
   const expectedDeliveryDate = new Date(today);
@@ -28,7 +28,7 @@ export const Cart = ({ cart }) => {
     }));
 
     const order = {
-      id: Date.now(), // Unique order ID
+      id: Date.now(),
       customerName,
       contactNumber,
       orderDate,
@@ -38,7 +38,6 @@ export const Cart = ({ cart }) => {
       completed: false,
     };
 
-    // Save order to backend
     try {
       await fetch('http://localhost:5000/api/orders', {
         method: 'POST',
@@ -51,55 +50,51 @@ export const Cart = ({ cart }) => {
       return;
     }
 
-    // Generate and download the PDF receipt
     const doc = new jsPDF();
+    const pageHeight = doc.internal.pageSize.getHeight();
 
-    // Add website logo
-    // const logoUrl = './images/logo.png'; // Replace with the actual path to your logo
-    const imgWidth = 30;
-    const imgHeight = 30;
-    doc.addImage(logo, 'PNG', 80, 10, imgWidth, imgHeight);
+    const logoHeight = pageHeight * 0.3;
+    const logoWidth = 200;
+    doc.addImage(logo, 'PNG', 5, 10, logoWidth, logoHeight);
 
-    // Add address and admin details
+    const addressStartY = 10 + logoHeight + 5;
     doc.setFontSize(12);
-    doc.setTextColor('#19609e');
-    doc.setFillColor('#ede7f6');
-    doc.rect(10, 35, 200, 20, 'F');
-    doc.text('Pickup At: Monica Food Studio, B/103, Gokul Divine, S. V. Road, Irla, Vile Parle (W), Mumbai- 400056', 15, 42);
-    doc.text('Contact: Monica Makwana | +919892255987', 15, 50);
+    doc.setTextColor('#5C4033');
+    doc.setFillColor('#F5F5DC');
+    doc.rect(10, addressStartY, 190, 20, 'F');
+    doc.text('Pickup At: B/103, Gokul Divine, S. V. Road, Irla, Vile Parle (W), Mumbai- 400056', 15, addressStartY + 7);
+    doc.text('Contact: Monica Makwana | +919892255987', 15, addressStartY + 15);
 
-    // Add order details
+    let currentY = addressStartY + 30;
     doc.setFontSize(14);
-    doc.text('Order Receipt', 15, 65);
-    doc.setFontSize(12);
-    doc.text(`Order ID: ${order.id}`, 15, 75);
-    doc.text(`Customer Name: ${customerName}`, 15, 85);
-    doc.text(`Contact Number: ${contactNumber}`, 15, 95);
-    doc.text(`Order Date: ${orderDate}`, 15, 105);
-    doc.text(`Delivery Date: ${formattedDeliveryDate}`, 15, 115);
+    doc.text('Order Receipt', 15, currentY);
 
-    // Add table for items
+    doc.setFontSize(12);
+    doc.text(`Order ID: ${order.id}`, 15, currentY += 10);
+    doc.text(`Customer Name: ${customerName}`, 15, currentY += 10);
+    doc.text(`Contact Number: ${contactNumber}`, 15, currentY += 10);
+    doc.text(`Order Date: ${orderDate}`, 15, currentY += 10);
+    doc.text(`Delivery Date: ${formattedDeliveryDate}`, 15, currentY += 10);
+
     const tableData = orderDetails.map((item) => [
       item.name,
       item.weight,
       `₹${item.price}`,
     ]);
+
     doc.autoTable({
       head: [['Item Name', 'Weight', 'Price']],
       body: tableData,
-      startY: 125,
+      startY: currentY + 10,
       theme: 'grid',
-      styles: { fillColor: '#ede7f6', textColor: '#19609e' },
+      styles: { fillColor: '#F5F5DC', textColor: '#5C4033' },
     });
 
-    // Add total
     doc.text(`Total: ₹${order.total}`, 15, doc.lastAutoTable.finalY + 10);
 
-    // Save the PDF
     doc.save(`Order_Receipt_${order.id}.pdf`);
 
-    // Redirect to UPI payment
-    const upiId = 'jhanavi.dave97@okhdfcbank'; // Replace with your UPI ID
+    const upiId = 'monicasfoodstudio@okhdfcbank';
     const upiUrl = `upi://pay?pa=${upiId}&pn=Bakery&mc=0000&tid=${order.id}&tr=${order.id}&tn=Order%20Payment&am=${order.total}&cu=INR`;
     window.location.href = upiUrl;
   };

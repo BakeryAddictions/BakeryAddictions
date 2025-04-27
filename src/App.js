@@ -1,3 +1,4 @@
+// Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
 import React, { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import './App.css';
@@ -6,6 +7,7 @@ import { AdminLogin } from './components/AdminLogin';
 import { AdminOrders } from './components/AdminOrders';
 import { BakeryMenu } from './components/BakeryMenu';
 import { Cart } from './components/Cart';
+import logo from './components/images/logo.png';
 import { ItemDetail } from './components/ItemDetail';
 import { Payment } from './components/Payment';
 import { Receipt } from './components/Receipt';
@@ -22,10 +24,6 @@ function App() {
   const [orders, setOrders] = useState([]);
 
   const handleAddToCart = (item) => {
-    console.log("Adding to cart:", item); // Debugging log
-    if (!item.name) {
-      console.error("Item is missing a name:", item);
-    }
     setCart((prevCart) => [...prevCart, item]);
   };
 
@@ -34,7 +32,7 @@ function App() {
   };
 
   const handleCategoryClick = (category) => {
-    setShowAdminLogin(false); // Hide the admin login screen
+    setShowAdminLogin(false);
     setShowPayment(false);
     setOrderDetails(null);
     setSelectedItem(null);
@@ -51,12 +49,12 @@ function App() {
 
   const handleAdminLogin = (isLoggedIn) => {
     setIsAdminLoggedIn(isLoggedIn);
-    setShowAdminLogin(false); // Hide login form after successful login
+    setShowAdminLogin(false);
   };
 
   const handleAdminLogout = () => {
-    setIsAdminLoggedIn(false); // Log out the admin
-    setShowAdminLogin(false);  // Ensure the login screen is hidden
+    setIsAdminLoggedIn(false);
+    setShowAdminLogin(false);
   };
 
   const handleOrderCompletion = (orderId) => {
@@ -67,24 +65,34 @@ function App() {
     );
   };
 
+  const handleLogoClick = () => {
+    setSelectedItem(null);
+    setCart([]);
+    setShowPayment(false);
+    setOrderDetails(null);
+    setActiveCategory(null);
+    setViewCart(false);
+    setShowAdminLogin(false);
+    setIsAdminLoggedIn(false);
+  };
+
   return (
     <div className="min-h-screen bg-bakeryBlue text-bakeryGold">
       <nav className="p-4 bg-bakeryLilac shadow-md">
-        <h1 className="text-3xl font-bold text-bakeryRed text-center">Monica Food Studio</h1>
+        <img src={logo} alt="Monica's Food Studio" className="logo" onClick={handleLogoClick}
+        />
         <div className="bubble-container">
           {[
-            "ClassicCakes", "PremiumCakes", "TeaTimeCakes", "DarkChocolateCakes", "Cupcakes", "Brownies", "Blondies",
-            "Cheesecakes", "Biscuits", "Breads", "Bons"
-          ].map((category) => (
-            <div
-              key={category}
-              className={`bubble cursor-pointer ${activeCategory === category ? "bg-activeCategory text-white" : "hover:bg-bakeryRed hover:text-white"
-                }`}
-              onClick={() => handleCategoryClick(category)}
-            >
-              {category}
-            </div>
-          ))}
+            "ClassicCakes", "PremiumCakes", "TeaTimeCakes", "Cupcakes", "Blondies", "Biscuits", "Breads"].map((category) => (
+              <div
+                key={category}
+                className={`bubble cursor-pointer ${activeCategory === category ? "bg-activeCategory text-white" : "hover:bg-bakeryRed hover:text-white"
+                  }`}
+                onClick={() => handleCategoryClick(category)}
+              >
+                {category}
+              </div>
+            ))}
           <div
             className={`bubble cursor-pointer relative flex items-center justify-center ${viewCart ? "bg-activeCategory text-white" : "hover:bg-bakeryRed hover:text-white"
               }`}
@@ -112,7 +120,7 @@ function App() {
           <AdminOrders
             orders={orders}
             onOrderCompletion={handleOrderCompletion}
-            onLogout={handleAdminLogout} // Pass the logout handler
+            onLogout={handleAdminLogout}
           />
         ) : showAdminLogin ? (
           <AdminLogin onLogin={handleAdminLogin} />

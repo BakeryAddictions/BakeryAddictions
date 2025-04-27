@@ -1,3 +1,5 @@
+/* Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave) */
+@import url('https://fonts.googleapis.com/css2?family=Askervville+SC&display=swap');
 .App {
   text-align: center;
 }
@@ -39,84 +41,68 @@
 }
 
 :root {
-  --bakery-blue: #19609e;
-  --bakery-red: #9b193d;
-  --bakery-gold: #d9b427;
-  --bakery-lilac: #ede7f6;
+  --bakery-green: #0B5B22;
+  --bakery-brown: #9C7945;
+  --bakery-light-green: #4CAF50;
+  --bakery-cream: #F5F5DC;
+  --bakery-dark-brown: #5C4033;
+  --bakery-gold: #D4AF37;
 }
 
 body {
-  background-color: var(--bakery-blue);
-  color: var(--bakery-gold);
-  font-family: sans-serif;
+  background-color: var(--bakery-cream);
+  color: var(--bakery-dark-brown);
+  font-family: 'Baskervville SC', serif;
 }
 
 h1,
 h2 {
-  color: var(--bakery-red);
-  background-color: var(--bakery-lilac);
+  color: var(--bakery-green);
+  background-color: var(--bakery-light-green);
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
 
 .bg-bakery-lilac {
-  background-color: #E6E6FA;
+  background-color: var(--bakery-cream);
 }
 
 .text-bakery-red {
-  color: #9b193d;
+  color: var(--bakery-dark-brown);
 }
 
 .bubble-container {
   display: flex;
   flex-wrap: wrap;
-  /* Allow bubbles to wrap to the next line if needed */
   justify-content: center;
-  /* Center-align the bubbles horizontally */
   gap: 1rem;
-  /* Add spacing between the bubbles */
   padding: 1rem;
-  /* Add padding around the container */
 }
 
 .bubble {
   display: inline-block;
   padding: 0.5rem 1rem;
   border-radius: 9999px;
-  /* Makes the element circular */
-  background-color: #f3f4f6;
-  /* Light gray background */
-  color: #1f2937;
-  /* Dark gray text */
+  background-color: var(--bakery-brown);
+  color: var(--bakery-cream);
   font-size: 0.875rem;
-  /* Text size */
   font-weight: 500;
-  /* Medium font weight */
   text-align: center;
   transition: background-color 0.3s, color 0.3s;
-  /* Smooth hover effect */
   max-width: 200px;
-  /* Ensure bubbles fit within a reasonable width */
   text-overflow: ellipsis;
-  /* Handle overflow text gracefully */
   white-space: nowrap;
-  /* Prevent text wrapping inside the bubble */
   overflow: hidden;
-  /* Hide overflowing text */
 }
 
 .bubble:hover {
-  background-color: #9b193d;
-  /* Red background on hover */
-  color: #ffffff;
-  /* White text on hover */
+  background-color: var(--bakery-green);
+  color: var(--bakery-gold);
 }
 
 .bg-activeCategory {
-  background-color: #9b193d;
-  /* Active category background color */
-  color: #ffffff;
-  /* White text color */
+  background-color: var(--bakery-green);
+  color: var(--bakery-gold);
 }
 
 .admin-login {
@@ -138,18 +124,18 @@ h2 {
 }
 
 .admin-orders .order {
-  border: 1px solid #ccc;
+  border: 1px solid var(--bakery-brown);
   padding: 10px;
   margin-bottom: 10px;
 }
 
 .admin-orders .order.completed {
-  background-color: #d4edda;
+  background-color: var(--bakery-light-green);
 }
 
 .logout-button {
-  background-color: #f44336;
-  color: white;
+  background-color: var(--bakery-green);
+  color: var(--bakery-cream);
   border: none;
   padding: 10px 20px;
   margin-bottom: 20px;
@@ -158,5 +144,14 @@ h2 {
 }
 
 .logout-button:hover {
-  background-color: #d32f2f;
+  background-color: var(--bakery-dark-brown);
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  height: 50vh;
+  cursor: pointer;
+  margin: 0 auto;
+  object-fit: contain;
 }

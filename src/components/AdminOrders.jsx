@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import ordersData from '../data/orders.json'; // Adjust the path to your orders.json file
+import ordersData from '../orders.json';
 
 export const AdminOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    // Load orders from JSON file
     setOrders(ordersData);
   }, []);
 
@@ -15,23 +14,23 @@ export const AdminOrders = () => {
     );
     setOrders(updatedOrders);
 
-    // Update orders.json file
     try {
-      await fetch('/src/data/orders.json', {
-        method: 'POST', // Replace with PUT or PATCH if needed
+      await fetch('/api/update-orders', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(updatedOrders, null, 2),
+        body: JSON.stringify(updatedOrders),
       });
+      console.log('Orders updated successfully');
     } catch (error) {
-      console.error('Error updating orders.json:', error);
+      console.error('Error updating orders:', error);
     }
   };
 
   const handleLogout = () => {
     console.log('Admin logged out');
-    // Add logout logic here
+    window.location.href = '/adminlogin'; // Redirect to the admin login page
   };
 
   return (

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export const ItemDetail = ({ item, onAddToCart }) => {
   const [selectedVariant, setSelectedVariant] = useState(null);
-  const [message, setMessage] = useState(''); // State for the message
+  const [message, setMessage] = useState('');
 
   if (!item) return <div>Select an item to see details.</div>;
 
@@ -18,8 +18,8 @@ export const ItemDetail = ({ item, onAddToCart }) => {
 
     if (onAddToCart && typeof onAddToCart === 'function') {
       onAddToCart(itemToAdd);
-      setMessage('Item added to cart successfully!'); // Set success message
-      setTimeout(() => setMessage(''), 3000); // Clear message after 3 seconds
+      setMessage('Item added to cart successfully!');
+      setTimeout(() => setMessage(''), 3000);
     } else {
       console.error("onAddToCart is not a valid function.");
     }
@@ -54,7 +54,7 @@ export const ItemDetail = ({ item, onAddToCart }) => {
       >
         Add to Cart
       </button>
-      {message && <p className="text-green-500 mt-4">{message}</p>} {/* Display message */}
+      {message && <p className="text-green-500 mt-4">{message}</p>}
     </div>
   );
 };
