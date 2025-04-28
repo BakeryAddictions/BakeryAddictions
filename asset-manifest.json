@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Monicas-Food-Studio/static/css/main.5bcec251.css",
-    "main.js": "/Monicas-Food-Studio/static/js/main.c9943358.js",
+    "main.css": "/Monicas-Food-Studio/static/css/main.ab136f3b.css",
+    "main.js": "/Monicas-Food-Studio/static/js/main.ac3702ae.js",
     "static/js/239.af538afe.chunk.js": "/Monicas-Food-Studio/static/js/239.af538afe.chunk.js",
     "static/js/977.844d733e.chunk.js": "/Monicas-Food-Studio/static/js/977.844d733e.chunk.js",
     "static/js/732.40eb83b5.chunk.js": "/Monicas-Food-Studio/static/js/732.40eb83b5.chunk.js",
@@ -50,15 +50,15 @@
     "static/media/iraniParsi.jpeg": "/Monicas-Food-Studio/static/media/iraniParsi.078dd7ab2634aad97dd4.jpeg",
     "static/media/mix-fruit.jpeg": "/Monicas-Food-Studio/static/media/mix-fruit.55aa8c3d7892bb79ff88.jpeg",
     "index.html": "/Monicas-Food-Studio/index.html",
-    "main.5bcec251.css.map": "/Monicas-Food-Studio/static/css/main.5bcec251.css.map",
-    "main.c9943358.js.map": "/Monicas-Food-Studio/static/js/main.c9943358.js.map",
+    "main.ab136f3b.css.map": "/Monicas-Food-Studio/static/css/main.ab136f3b.css.map",
+    "main.ac3702ae.js.map": "/Monicas-Food-Studio/static/js/main.ac3702ae.js.map",
     "239.af538afe.chunk.js.map": "/Monicas-Food-Studio/static/js/239.af538afe.chunk.js.map",
     "977.844d733e.chunk.js.map": "/Monicas-Food-Studio/static/js/977.844d733e.chunk.js.map",
     "732.40eb83b5.chunk.js.map": "/Monicas-Food-Studio/static/js/732.40eb83b5.chunk.js.map",
     "453.5bac69c4.chunk.js.map": "/Monicas-Food-Studio/static/js/453.5bac69c4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5bcec251.css",
-    "static/js/main.c9943358.js"
+    "static/css/main.ab136f3b.css",
+    "static/js/main.ac3702ae.js"
   ]
 }
