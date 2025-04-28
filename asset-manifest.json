@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Monicas-Food-Studio/static/css/main.ab136f3b.css",
-    "main.js": "/Monicas-Food-Studio/static/js/main.fa800ec3.js",
+    "main.js": "/Monicas-Food-Studio/static/js/main.29385dbd.js",
     "static/js/239.af538afe.chunk.js": "/Monicas-Food-Studio/static/js/239.af538afe.chunk.js",
     "static/js/977.844d733e.chunk.js": "/Monicas-Food-Studio/static/js/977.844d733e.chunk.js",
     "static/js/732.40eb83b5.chunk.js": "/Monicas-Food-Studio/static/js/732.40eb83b5.chunk.js",
@@ -29,6 +29,7 @@
     "static/media/oreo-cookies.jpg": "/Monicas-Food-Studio/static/media/oreo-cookies.c0bd152975e30a2a79b7.jpg",
     "static/media/2.jpg": "/Monicas-Food-Studio/static/media/2.f0991ee4515adb2ef11a.jpg",
     "static/media/assortedCupcakeBouquet.jpg": "/Monicas-Food-Studio/static/media/assortedCupcakeBouquet.f0991ee4515adb2ef11a.jpg",
+    "static/media/melting-moments-cookies.jpeg": "/Monicas-Food-Studio/static/media/melting-moments-cookies.ab967244409d281f37d2.jpeg",
     "static/media/4.jpg": "/Monicas-Food-Studio/static/media/4.5a4fecab0dc71ca15b95.jpg",
     "static/media/whole-wheat-nankhatai-box.jpg": "/Monicas-Food-Studio/static/media/whole-wheat-nankhatai-box.ff9d9dd66798b7e02545.jpg",
     "static/media/almond-rose-blondies.jpg": "/Monicas-Food-Studio/static/media/almond-rose-blondies.33432e2bc6d936b147fb.jpg",
@@ -43,7 +44,6 @@
     "static/media/black-grapes.jpeg": "/Monicas-Food-Studio/static/media/black-grapes.a13e456ffff14de9f9cc.jpeg",
     "static/media/mango-swirl-blondies.jpeg": "/Monicas-Food-Studio/static/media/mango-swirl-blondies.534b7c5022c9763da091.jpeg",
     "static/media/red-velvet-cream-cheese-cupcake-bouquet.jpeg": "/Monicas-Food-Studio/static/media/red-velvet-cream-cheese-cupcake-bouquet.1012dcf0965964c8cbe8.jpeg",
-    "static/media/melting-moments-cookies.jpeg": "/Monicas-Food-Studio/static/media/melting-moments-cookies.4eb2eb27af588a61ba7d.jpeg",
     "static/media/red-velvet.jpeg": "/Monicas-Food-Studio/static/media/red-velvet.720246f89323aa9fdfda.jpeg",
     "static/media/kitkat-chocolate.jpeg": "/Monicas-Food-Studio/static/media/kitkat-chocolate.55414696678babb89fa8.jpeg",
     "static/media/rasmalai.jpeg": "/Monicas-Food-Studio/static/media/rasmalai.a09cd89b929d4a3e3213.jpeg",
@@ -51,7 +51,7 @@
     "static/media/mix-fruit.jpeg": "/Monicas-Food-Studio/static/media/mix-fruit.55aa8c3d7892bb79ff88.jpeg",
     "index.html": "/Monicas-Food-Studio/index.html",
     "main.ab136f3b.css.map": "/Monicas-Food-Studio/static/css/main.ab136f3b.css.map",
-    "main.fa800ec3.js.map": "/Monicas-Food-Studio/static/js/main.fa800ec3.js.map",
+    "main.29385dbd.js.map": "/Monicas-Food-Studio/static/js/main.29385dbd.js.map",
     "239.af538afe.chunk.js.map": "/Monicas-Food-Studio/static/js/239.af538afe.chunk.js.map",
     "977.844d733e.chunk.js.map": "/Monicas-Food-Studio/static/js/977.844d733e.chunk.js.map",
     "732.40eb83b5.chunk.js.map": "/Monicas-Food-Studio/static/js/732.40eb83b5.chunk.js.map",
@@ -59,6 +59,6 @@
   },
   "entrypoints": [
     "static/css/main.ab136f3b.css",
-    "static/js/main.fa800ec3.js"
+    "static/js/main.29385dbd.js"
   ]
 }
