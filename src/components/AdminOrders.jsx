@@ -1,5 +1,5 @@
 // Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
-
+// deprecated
 import React, { useEffect, useState } from 'react';
 import ordersData from '../orders.json';
 

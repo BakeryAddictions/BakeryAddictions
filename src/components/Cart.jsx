@@ -84,6 +84,7 @@ export const Cart = ({ cart }) => {
     doc.save(`Order_Receipt_${order.id}.pdf`);
 
     const emailParams = {
+      order_id: order.id,
       customer_name: customerName,
       contact_number: contactNumber,
       order_date: orderDate,
@@ -99,16 +100,15 @@ export const Cart = ({ cart }) => {
         emailParams,
         'SBISX9vDC6D-LAaae'
       );
-
-      alert('Order placed successfully! Receipt downloaded and email sent.');
+      alert('Order confirmed successfully! Receipt downloaded and email sent to Monica to confirm.');
     } catch (error) {
       console.error('Failed to send email:', error);
       alert('Failed to send email. Please try again.');
     }
-    
+
     const upiId = 'monicasfoodstudio@okhdfcbank';
     const upiUrl = `upi://pay?pa=${upiId}&pn=Bakery&mc=0000&tid=${order.id}&tr=${order.id}&tn=Order%20Payment&am=${order.total}&cu=INR`;
-    window.location.href = upiUrl;
+
   };
 
   return (
@@ -154,7 +154,7 @@ export const Cart = ({ cart }) => {
             <strong>Expected Delivery Date:</strong> {formattedDeliveryDate}
           </p>
           <p className="text-sm text-red-600 mt-2">
-            Note: Custom orders need to be placed on call. All orders should be placed at least one day before the expected delivery date.
+            Note: This is <b><u>not an order receipt</u></b>. Please pay the amount mentioned to <b>+919892255987</b> or <a href="${upiUrl}">Monica's GPay UPI</a> confirm your order.
           </p>
         </div>
       )}
@@ -163,7 +163,7 @@ export const Cart = ({ cart }) => {
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4"
           onClick={handleConfirmOrder}
         >
-          Proceed to Payment
+          Proceed to Confirm Order
         </button>
       )}
     </div>

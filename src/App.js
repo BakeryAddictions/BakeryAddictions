@@ -105,13 +105,13 @@ function App() {
               </span>
             )}
           </div>
-          <div
+          {/* <div
             className={`bubble cursor-pointer ${isAdminLoggedIn ? "bg-activeCategory text-white" : "hover:bg-bakeryRed hover:text-white"
               }`}
             onClick={() => setShowAdminLogin(true)}
           >
             Admin
-          </div>
+          </div> */}
         </div>
       </nav>
 

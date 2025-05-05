@@ -1,5 +1,4 @@
-// Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import image1 from './images/gallery/1.jpg';
 import image2 from './images/gallery/2.jpg';
 import image3 from './images/gallery/3.jpg';
@@ -15,14 +14,24 @@ import './styling.css';
 const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9];
 
 export const AboutUs = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const marqueeRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+    const marquee = marqueeRef.current;
+    let scrollAmount = 0;
 
-    return () => clearInterval(interval);
+    const scrollMarquee = () => {
+      scrollAmount += 1;
+      if (marquee.scrollLeft >= marquee.scrollWidth / 2) {
+        marquee.scrollLeft = 0; // Reset scroll to create a seamless loop
+      } else {
+        marquee.scrollLeft += 1; // Increment scroll position
+      }
+    };
+
+    const interval = setInterval(scrollMarquee, 20); // Adjust speed by changing the interval time
+
+    return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
 
   return (
@@ -31,9 +40,14 @@ export const AboutUs = () => {
       <p id="about-us-description">
         Welcome to <span id="about-us-highlight">Monica's Food Studio</span>!
         <br />
-        Hi, I'm Monica, and I am delighted to bring you the freshest, most indulgent treats—from cakes and cookies to bread and bons. My mission is to spread joy through my baked delights! All the items are freshly made without eggs.
+        Hi, I'm Monica, and I am delighted to bring you the freshest, most indulgent treats—from cakes and cookies to bread and bons. My mission is to spread joy through my baked delights! All the items are freshly made <strong>without eggs</strong>.
       </p>
-      <p> Follow me on Instagram <a href="https://www.instagram.com/monicasfoodstudio/#" target="_blank" rel="noopener noreferrer">@monicafoodstudio</a></p>
+      <p>
+        Follow me on Instagram{' '}
+        <a href="https://www.instagram.com/monicasfoodstudio/#" target="_blank" rel="noopener noreferrer">
+          @monicasfoodstudio
+        </a>
+      </p>
       <a href="https://www.instagram.com/monicasfoodstudio/#" target="_blank" rel="noopener noreferrer">
         <img src={instagram} alt="Instagram: Monica's Food Studio" />
       </a>
@@ -44,20 +58,15 @@ export const AboutUs = () => {
           <li>Custom orders are to be placed on call.</li>
           <li>All orders must be placed at least one day prior to the expected delivery date.</li>
           <li>Placed orders cannot be cancelled.</li>
+          <li>Delivery charges extra.</li>
+          <li>Advance payment. No refunds</li>
         </ul>
       </div>
 
-      <div id="image-marquee">
-        <div
-          className="marquee-content"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={`marquee-item ${index === currentIndex ? 'highlight' : ''
-                }`}
-            >
+      <div id="image-marquee" ref={marqueeRef} className="marquee-container">
+        <div className="marquee-content">
+          {images.concat(images).map((image, index) => (
+            <div key={index} className="marquee-item">
               <img src={image} alt={`Monica's Food Studio - Gallery ${index}`} className="marquee-image" />
             </div>
           ))}

@@ -1,4 +1,5 @@
 // Developed By: Jhanavi Dave (LinkedIn: www.linkedin.com/in/jhanavi-dave)
+// deprecated
 import React, { useState } from 'react';
 
 export const AdminLogin = ({ onLogin }) => {
