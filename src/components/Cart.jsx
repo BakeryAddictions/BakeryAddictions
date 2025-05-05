@@ -47,7 +47,6 @@ export const Cart = ({ cart }) => {
     doc.addImage(logo, 'PNG', 5, 10, logoWidth, logoHeight);
 
     const addressStartY = 10 + logoHeight + 5;
-    const yPosition = doc.lastAutoTable.finalY + 30;
     doc.setFontSize(12);
     doc.setTextColor('#5C4033');
     doc.setFillColor('#F5F5DC');
@@ -82,10 +81,10 @@ export const Cart = ({ cart }) => {
 
     doc.text(`Total: ₹${order.total}`, 15, doc.lastAutoTable.finalY + 10);
     doc.text('Thank you for your order!', 15, doc.lastAutoTable.finalY + 20);
-    doc.text('Please pay via UPI on the following ID:', 15, yPosition);
-    doc.textWithLink(upiId, 15, yPosition + 10, { url: upiUrl });
+    doc.text('Please pay via UPI on the following ID: monicasfoodstudio@okhdfcbank', 15, doc.lastAutoTable.finalY + 30);
     doc.text('Note: Custom orders need to be placed on call. All orders should be placed at least one day before the expected delivery date.', 15, doc.lastAutoTable.finalY + 40);
-    doc.text('For any queries, please contact Monica at +919892255987', 15, doc.lastAutoTable.finalY + 50);
+    doc.text('For any queries, please contact us at +919892255987.', 15, doc.lastAutoTable.finalY + 50);
+    doc.text('Follow us on Instagram: @monicasfoodstudio', 15, doc.lastAutoTable.finalY + 60);
 
     doc.save(`Order_Receipt_${order.id}.pdf`);
 
@@ -106,7 +105,7 @@ export const Cart = ({ cart }) => {
         emailParams,
         'SBISX9vDC6D-LAaae'
       );
-      alert('Order confirmed successfully! Receipt downloaded and email sent to Monica to confirm.');
+      alert('Order placed successfully! Receipt downloaded and email sent.');
     } catch (error) {
       console.error('Failed to send email:', error);
       alert('Failed to send email. Please try again.');
@@ -115,6 +114,13 @@ export const Cart = ({ cart }) => {
     const upiId = 'monicasfoodstudio@okhdfcbank';
     const upiUrl = `upi://pay?pa=${upiId}&pn=Bakery&mc=0000&tid=${order.id}&tr=${order.id}&tn=Order%20Payment&am=${order.total}&cu=INR`;
 
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+      // Mobile device
+      window.location.href = upiUrl;
+    } else {
+      // Desktop fallback
+      alert(`If the UPI app doesn't open automatically, please use this link: ${upiUrl}`);
+    }
   };
 
   return (
@@ -170,7 +176,7 @@ export const Cart = ({ cart }) => {
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4"
           onClick={handleConfirmOrder}
         >
-          Proceed to Payment
+          Proceed to Confirm Order
         </button>
       )}
     </div>
