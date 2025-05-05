@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Monicas-Food-Studio/static/css/main.ab136f3b.css",
-    "main.js": "/Monicas-Food-Studio/static/js/main.2d04a00c.js",
+    "main.js": "/Monicas-Food-Studio/static/js/main.b04ac6d3.js",
     "static/js/239.af538afe.chunk.js": "/Monicas-Food-Studio/static/js/239.af538afe.chunk.js",
     "static/js/977.844d733e.chunk.js": "/Monicas-Food-Studio/static/js/977.844d733e.chunk.js",
     "static/js/732.40eb83b5.chunk.js": "/Monicas-Food-Studio/static/js/732.40eb83b5.chunk.js",
@@ -51,7 +51,7 @@
     "static/media/mix-fruit.jpeg": "/Monicas-Food-Studio/static/media/mix-fruit.55aa8c3d7892bb79ff88.jpeg",
     "index.html": "/Monicas-Food-Studio/index.html",
     "main.ab136f3b.css.map": "/Monicas-Food-Studio/static/css/main.ab136f3b.css.map",
-    "main.2d04a00c.js.map": "/Monicas-Food-Studio/static/js/main.2d04a00c.js.map",
+    "main.b04ac6d3.js.map": "/Monicas-Food-Studio/static/js/main.b04ac6d3.js.map",
     "239.af538afe.chunk.js.map": "/Monicas-Food-Studio/static/js/239.af538afe.chunk.js.map",
     "977.844d733e.chunk.js.map": "/Monicas-Food-Studio/static/js/977.844d733e.chunk.js.map",
     "732.40eb83b5.chunk.js.map": "/Monicas-Food-Studio/static/js/732.40eb83b5.chunk.js.map",
@@ -59,6 +59,6 @@
   },
   "entrypoints": [
     "static/css/main.ab136f3b.css",
-    "static/js/main.2d04a00c.js"
+    "static/js/main.b04ac6d3.js"
   ]
 }
