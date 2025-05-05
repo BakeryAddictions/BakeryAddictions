@@ -10,7 +10,6 @@ applyPlugin(jsPDF);
 export const Cart = ({ cart }) => {
   const [customerName, setCustomerName] = useState('');
   const [contactNumber, setContactNumber] = useState('');
-  const yPosition = doc.lastAutoTable.finalY + 30;
 
   const today = new Date();
   const orderDate = today.toLocaleDateString();
@@ -48,6 +47,7 @@ export const Cart = ({ cart }) => {
     doc.addImage(logo, 'PNG', 5, 10, logoWidth, logoHeight);
 
     const addressStartY = 10 + logoHeight + 5;
+    const yPosition = doc.lastAutoTable.finalY + 30;
     doc.setFontSize(12);
     doc.setTextColor('#5C4033');
     doc.setFillColor('#F5F5DC');
