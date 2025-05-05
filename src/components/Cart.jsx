@@ -10,6 +10,7 @@ applyPlugin(jsPDF);
 export const Cart = ({ cart }) => {
   const [customerName, setCustomerName] = useState('');
   const [contactNumber, setContactNumber] = useState('');
+  const yPosition = doc.lastAutoTable.finalY + 30;
 
   const today = new Date();
   const orderDate = today.toLocaleDateString();
@@ -80,6 +81,11 @@ export const Cart = ({ cart }) => {
     });
 
     doc.text(`Total: ₹${order.total}`, 15, doc.lastAutoTable.finalY + 10);
+    doc.text('Thank you for your order!', 15, doc.lastAutoTable.finalY + 20);
+    doc.text('Please pay via UPI on the following ID:', 15, yPosition);
+    doc.textWithLink(upiId, 15, yPosition + 10, { url: upiUrl });
+    doc.text('Note: Custom orders need to be placed on call. All orders should be placed at least one day before the expected delivery date.', 15, doc.lastAutoTable.finalY + 40);
+    doc.text('For any queries, please contact Monica at +919892255987', 15, doc.lastAutoTable.finalY + 50);
 
     doc.save(`Order_Receipt_${order.id}.pdf`);
 
@@ -154,8 +160,9 @@ export const Cart = ({ cart }) => {
             <strong>Expected Delivery Date:</strong> {formattedDeliveryDate}
           </p>
           <p className="text-sm text-red-600 mt-2">
-            Note: This is <b><u>not an order receipt</u></b>. Please pay the amount mentioned to <b>+919892255987</b> or <a href="${upiUrl}">Monica's GPay UPI</a> confirm your order.
+            Note: Custom orders need to be placed on call. All orders should be placed at least one day before the expected delivery date.
           </p>
+          <p>Please pay via UPI on the following ID: monicasfoodstudio@okhdfcbank.</p>
         </div>
       )}
       {cart.length > 0 && (
@@ -163,7 +170,7 @@ export const Cart = ({ cart }) => {
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4"
           onClick={handleConfirmOrder}
         >
-          Proceed to Confirm Order
+          Proceed to Payment
         </button>
       )}
     </div>
